@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "workspace : ${WORKSPACE},module: ${MODULE}"
-rm -rm Dockerfile
+rm -rf Dockerfile
 touch Dockerfile
 
 echo "FROM apache/skywalking-java-agent:8.10.0-java8" > Dockerfile
