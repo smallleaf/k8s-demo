@@ -6,10 +6,10 @@ metadata:
   name: api-gateway
 spec:
   ports:
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: 8888
+    - name: http
+      port: 8888
+      protocol: TCP
+      targetPort: 8888
   selector:
     app: api-gateway
   sessionAffinity: None
@@ -24,16 +24,16 @@ spec:
   selector:
     matchLabels:
       app: api-gateway
-  template: 
+  template:
     metadata:
       labels:
         app: api-gateway
     spec:
       containers:
-      - name: api-gateway
-        image: 578986218/api-gateway-zuul:latest
-        ports:
-        - containerPort: 8888
+        - name: api-gateway
+          image: 578986218/api-gateway-zuul:latest
+          ports:
+            - containerPort: 8888
 
 ---
 #ingress
@@ -53,4 +53,4 @@ spec:
               service:
                 name: api-gateway
                 port:
-                  number: 80
+                  number: 8888
