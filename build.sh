@@ -12,23 +12,26 @@ docker build -t 578986218/${MODULE}:latest .
 docker push 578986218/${MODULE}:latest
 
 filePath="/data/${MODULE}.yaml"
-echo "开始部署，推送k8s文件到:${filePath}"
+echo "push file :${filePath} to k8s1"
 scp ${MODULE}/${MODULE}.yaml root@k8s1:/data/
 
-echo "推送成功"
+echo "push success"
 
-echo "开始登录k8s1机器"
+echo "login k8s"
 
 ssh k8s1
 
-echo "登录成功"
+echo "login success"
 
 cat /data/${MODULE}.yaml
 
-echo "执行k8s命令"
+echo "exec kubectl apply -f ${filePath}"
 
+kubectl apply -f ${filePath}
+
+echo "exec success"
 exit
 
-echo "退出执行完毕"
+echo "exit deply success"
 
 
