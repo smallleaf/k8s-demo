@@ -9,7 +9,7 @@ rm -rm Dockerfile
 touch Dockerfile
 
 echo "FROM apache/skywalking-java-agent:8.10.0-java8" > Dockerfile
-ech0 "MAINTAINER yesheng 578986218@qq.com" > Dockerfile
+echo "MAINTAINER yesheng 578986218@qq.com" > Dockerfile
 cat copy_cmd > Dockerfile
 cat exec_cmd > Dockerfile
 
