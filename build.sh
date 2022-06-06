@@ -1,12 +1,17 @@
 #!/bin/bash
 
-DOCKER_DIR=${MODULE}
-echo "docker workspace : ${MODULE}"
+echo "workspace : ${WORKSPACE},module: ${MODULE}"
 
-JENKINS_DIR=${WORKSPACE}/${MODULE}
+copy_cmd "COPY ${MODULE}/target/${MODULE}-1.0.jar /${MODULE}.jar"
+echo copy_cmd
 
-echo "jenkins workspace : ${JENKINS_DIR}"
+cat copy_cmd > Dockerfile
 
-docker build -t 578986218/${MODULE}:latest .
-docker push 578986218/${MODULE}:latest .
+exec_cmd "ENTRYPOINT java $JAVA_OPTS  -jar /${MODULE}.jar"
+
+echo exec_cmd
+cat exec_cmd > Dockerfile
+
+#docker build -t 578986218/${MODULE}:latest .
+#docker push 578986218/${MODULE}:latest .
 

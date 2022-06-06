@@ -1,5 +1,5 @@
 FROM apache/skywalking-java-agent:8.10.0-java8
-MAINTAINER xxx xxx@imooc.com
+MAINTAINER yesheng 578986218@qq.com
 
 COPY ${MODULE}/target/${MODULE}-1.0.jar /${MODULE}.jar
 
