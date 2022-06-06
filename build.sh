@@ -1,11 +1,12 @@
 #!/bin/bash
 
-DOCKER_DIR=${JOB_NAME}
-
-echo "docker workspace : ${JOB_NAME}"
+DOCKER_DIR=${MODULE}
+echo "docker workspace : ${MODULE}"
 
 JENKINS_DIR=${WORKSPACE}/${MODULE}
 
+echo "jenkins workspace : ${JENKINS_DIR}"
 
-echo "docker workspace : ${JENKINS_DIR}"
+docker build -t 578986218/${MODULE}:latest .
+docker push 578986218/${MODULE}:latest .
 
