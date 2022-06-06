@@ -19,7 +19,7 @@ echo "push success"
 
 echo "login k8s"
 
-ssh k8s1
+ssh -tt k8s1
 
 echo "login success"
 
